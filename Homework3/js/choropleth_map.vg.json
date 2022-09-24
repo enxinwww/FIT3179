@@ -19,14 +19,14 @@
         "fields": ["Happiness Score"]
       }
     },
-    {"calculate": "datum.Happiness + 0.0", "as": "Happiness Score"}
+    {"calculate": "datum.Happiness + 0.0", "as": "Happiness"}
   ],
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
       "field": "Happiness Score",
       "type": "quantitative",
-      "scale": {"type": "log", "scheme": "blues"}
+      "scale": {"type": "log", "scheme": "oranges"}
     },
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
