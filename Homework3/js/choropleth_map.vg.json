@@ -1,40 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Happiness Level by country (2019)",
-  "width": 400,
-  "height": 200,
+  "width": 600,
+  "height": 300,
   "projection": {"type": "equalEarth"},
   "data": {
     "url": "https://raw.githubusercontent.com/enxinwww/FIT3179/main/Homework3/js/ne_110m_admin_0_countries.topojson",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
   },
-  "params": [
-    {
-      "name": "Region",
-      "bind": {
-        "input": "select",
-        "options": [
-          null,
-          "North America",
-          "South America",
-          "Europe",
-          "Africa",
-          "Asia",
-          "Oceania"
-        ],
-        "labels": [
-          "Show All",
-          "North America",
-          "South America",
-          "Europe",
-          "Africa",
-          "Asia",
-          "Oceania"
-        ],
-        "name": "Continent Selection: "
-      }
-    }
-  ],
+  
   "transform": [
     {
       "lookup": "properties.NAME",
@@ -60,4 +34,5 @@
       {"field": "Happiness Score", "type": "quantitative"}
     ]
   }
+  
 }

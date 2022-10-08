@@ -1,38 +1,104 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "height": 200,
-  "width": 400,
+  "width": 600,
+  "height": 300,
   "title": "COVID-19 Cases per Country (13 Oct 2020)",
   "data": {
-    "url": "Happiness2015.csv"
-},
-    "params": [
+    "url": "https://raw.githubusercontent.com/enxinwww/FIT3179/main/Homework3/data/Happiness2015.csv"
+  },
+  "params": [
     {
-      "name": "Population_Above",
-
-      "value": 0,
-      "bind": {"input": "range", "min": 0, "max": 100000000, "step": 1000000}
+      "name": "Region_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Western Europe",
+          "Latin America and Caribbean",
+          "Southeastern Asia",
+          "Central and Eastern Europe",
+          "Eastern Asia",
+          "Sub-Saharan Africa",
+          "Southern Asia"
+        ],
+        "labels": [
+          "Show All",
+          "Western Europe",
+          "Latin America and Caribbean",
+          "Southeastern Asia",
+          "Central and Eastern Europe",
+          "Eastern Asia",
+          "Sub-Saharan Africa",
+          "Southern Asia"
+        ],
+        "name": "Region Selection: "
+      }
     }
   ],
-  "selection": {
-    "continent_selection": {
-      "type": "multi", "fields": ["Continent"], "bind": "legend"
+  "transform": [
+    {
+      "filter": "Region_selection == null || datum.Region == Region_selection"
     }
-  },
-  "mark": "point",
+  ],
   "encoding": {
     "x": {
-      "field": "Economy (GDP per Capita)",
+      "field": "Freedom",
       "type": "quantitative",
-      "title":"Economy (GDP per Capita)",
+      "title": "Freedom",
       "axis": {"tickCount": 7},
-      "scale": {"type": "log",  "domain":[1, 10000000]}
+      "scale": {"type": "linear", "domain": [0, 1]}
     },
     "y": {
       "field": "Happiness Score",
       "type": "quantitative",
-      "axis": { "tickCount": 6},
-      "scale": {"type": "log", "domain":[1, 1000000]}
+      "axis": {"tickCount": 10},
+      "scale": {"type": "log", "domain": [1, 10]}
     }
-}
+  },
+  "layer": [
+    {
+      "mark": "circle",
+      "encoding": {
+        "opacity": {"value": 0.6},
+        "color": {
+          "field": "Region",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Western Europe",
+              "Latin America and Caribbean",
+              "Southeastern Asia",
+              "Central and Eastern Europe",
+              "Eastern Asia",
+              "Sub-Saharan Africa",
+              "Southern Asia"
+            ],
+            "range": [
+              "#e41a1c",
+              "#984ea3",
+              "#ff7f00",
+              "#a6cee3",
+              "#377eb8",
+              "#a65628",
+              "#17A589"
+            ]
+          }
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Happiness Score", "type": "quantitative", "format": ","}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      }
+    }
+  ]
 }

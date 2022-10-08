@@ -8,32 +8,52 @@
   
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/base-min.css">
 
   
 </head>
 <body>
 
-  
-<div id="choropleth_map" ></div>
+  <h1>Happiness rate around the world</h1>
 
-<div id="scatter"></div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-deskop">
+              <div>
+                <h2>Happiness of each country</h2>
+              
+                <div id="scatter"></div>
+              </div>
+
+            <div>
+              <h2>How Freedom effect happiness of a country</h2>
+            
+              <div id="choropleth_map" ></div>
+            </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    
+</main>
 
 
 
-<script type="text/javascript">
+  <script type="text/javascript">
 
-  var spec1 = "js/choropleth_map.vg.json";
-  var spec2 = "js/scatter.vg.json";
+    var spec1 = "js/choropleth_map.vg.json";
+    var spec2 = "js/scatter.vg.json";
 
-  vegaEmbed('#choropleth_map', spec1).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
+    vegaEmbed('#choropleth_map', spec1).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
 
-  vegaEmbed('#scatter', spec2).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-</script>
+    vegaEmbed('#scatter', spec2).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
 
 </body>
 </html>
