@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 600,
   "height": 300,
-  "title": "COVID-19 Cases per Country (13 Oct 2020)",
+  "title": "How Freedom effect a country happiness",
   "data": {
     "url": "https://raw.githubusercontent.com/enxinwww/FIT3179/main/Homework3/data/Happiness2015.csv"
   },
