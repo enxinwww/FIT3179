@@ -8,12 +8,18 @@
   
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/base-min.css">
+
+  
 </head>
 <body>
+
   
-<div id="choropleth_map"></div>
+<div id="choropleth_map" ></div>
 
 <div id="scatter"></div>
+
+
 
 <script type="text/javascript">
 
@@ -24,7 +30,7 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
-  vegaEmbed('#scatter_plot', spec2).then(function(result) {
+  vegaEmbed('#scatter', spec2).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 </script>
